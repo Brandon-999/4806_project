@@ -30,11 +30,30 @@ header > * {
 
 #page-title {
     text-align: center;
-    font-size: 7vw;
-    margin-left: 12%;
+    font-size: 6vw;
+    margin-left: 10%;
 }
 
 body {
     background-color: lightblue;
     margin: 0px;
+}
+
+#login-reg-div {
+    margin-left: 2vw;
+}
+
+.login-reg-btn {
+    margin-left: 1vw;
+    padding: 0px;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.login-reg-btn:hover {
+    background-color: lightblue;
+}
+
+.login-reg-text {
+    font-size: 2.5vw;
 }
