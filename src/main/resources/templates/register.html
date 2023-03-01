@@ -21,6 +21,19 @@
             <button class="login-reg-btn" onclick="goToLogin()"><p class="login-reg-text">login</p></button>
         </div>
     </header>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;This is our registration page!</p>
+    <div id="register-div">
+        <p>Please register</p>
+        <div>
+            <label>Username: </label>
+            <input id="username-field" type="text">
+        </div>
+        <div>
+            <label>Password: </label>
+            <input id="password-field" type="password">
+        </div>
+        <div>
+            <button onclick="attemptRegistration()">Register</button>
+        </div>
+    </div>
 </body>
 </html>
