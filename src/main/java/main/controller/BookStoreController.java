@@ -2,22 +2,25 @@ package main.controller;
 
 import org.springframework.web.bind.annotation.*;
 import main.model.Credentials;
+import org.springframework.http.MediaType;
 
 @RestController
 public class BookStoreController {
 
-
-    @PostMapping("/new_user")
-    public void newUser(@RequestBody Credentials credentials){
+    @PostMapping(value="/new_user", produces=MediaType.APPLICATION_JSON_VALUE)
+    public String newUser(@RequestBody Credentials credentials){
         //TODO implement account creation in backend
         System.out.println(credentials.getUsername());
         System.out.println(credentials.getPassword());
+        return "{\"success\": true}";
     }
 
-    @PostMapping("/verify_login")
-    public void verifyLogin(@RequestBody Credentials credentials){
+    @PostMapping(value="/verify_login", produces=MediaType.APPLICATION_JSON_VALUE)
+    public String verifyLogin(@RequestBody Credentials credentials){
         //TODO implement account creation in backend
         System.out.println(credentials.getUsername());
         System.out.println(credentials.getPassword());
+        
+        return "{\"success\": true}";
     }
 }

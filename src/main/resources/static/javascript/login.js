@@ -18,10 +18,11 @@ function validPassword(password){
 }
 
 async function login(username, password){
-    fetch("/verify_login", {
+    return fetch("/verify_login", {
         method: "POST",
         headers: {
             'Content-Type': "application/json",
+            'Accept': "application/json",
         },
         body: JSON.stringify({
             username,
@@ -36,15 +37,24 @@ function attemptLogin(){
 
     if(!validUsername || !validPassword()){
         // TODO more graceful failiure
-        console.log("login error");
-        alert("login error");
+        console.log("login failure (client side)");
+        alert("login failure (client side)");
 
         return;
     }
 
     login(username, password)
-    .then(() => {
-        alert("Successful login!");
-        document.location.href = "/";
+    .then((resp) => {
+        return resp.json();
+    })
+    .then((obj) => {
+        if(obj.success){
+            alert("Successful login!");
+            document.location.href = "/";
+        }
+        else{
+            console.log("login failure (server side)");
+            alert("Login failure (server side)");
+        }
     });
 }

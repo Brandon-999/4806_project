@@ -18,10 +18,11 @@ function validPassword(password){
 }
 
 async function registerNewUser(username, password){
-    fetch("/new_user", {
+    return fetch("/new_user", {
         method: "POST",
         headers: {
             'Content-Type': "application/json",
+            'Accept': "application/json",
         },
         body: JSON.stringify({
             username,
@@ -36,15 +37,24 @@ function attemptRegistration(){
 
     if(!validUsername || !validPassword()){
         // TODO more graceful failiure
-        console.log("registration error");
-        alert("registration error");
+        console.log("registration error (client side)");
+        alert("registration error (client side)");
 
         return;
     }
 
     registerNewUser(username, password)
-    .then(() => {
-        alert("Successful registration!");
-        document.location.href = "/";
+    .then((resp) => {
+        return resp.json();
+    })
+    .then((obj) => {
+        if(obj.success){
+            alert("Successful registration!");
+            document.location.href = "/";
+        }
+        else{
+            console.log("registration error (server side)");
+            alert("registration error (server side)");
+        }
     });
 }
