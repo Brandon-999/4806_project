@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface UserService {
 
-    void saveOrder(String username, OrderModel orderModel);
+    /*void saveOrder(String username, OrderModel orderModel);
     void removeOrder(String username, Integer id);
     List<OrderModel> getOrderList(String username);
 
@@ -22,5 +22,8 @@ public interface UserService {
     void updateBilling(String username, String billingAddress);
     String getBillingAddress(String username);
     void updateEmail(String username, String email);
-    String getEmail(String username);
+    String getEmail(String username);*/
+
+    void createUser(String username,String password);
+    boolean verifyLogin(String username, String password);
 }
