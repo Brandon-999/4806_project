@@ -68,8 +68,7 @@ public class GUIController {
      */
     @GetMapping("/book")
     public String book(@RequestParam("id") Long id, Model model){
-        model.addAttribute("id", id); //bookRepo.findById(id).get().getTitle()
-        //model.addAttribute("bookID", );
+        model.addAttribute("id", id);
         return "book";
     }
 

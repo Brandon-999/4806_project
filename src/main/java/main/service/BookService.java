@@ -22,17 +22,4 @@ public class BookService {
 
     }
 
-    // @Override
-    // public BookModel addBook(String username, String password) {
-    //     UserModel userModel = new UserModel(username, password);
-    //     userRepo.save(userModel);
-    //     return userModel;
-    // }
-
-    // @Override
-    // public boolean verifyLogin(String username, String password){
-    //     UserModel userModel = userRepo.findByUsername(username);
-    //     return(userModel.getPassword().equals(password));
-    // }
-
 }
