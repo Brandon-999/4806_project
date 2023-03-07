@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface BookRepository extends JpaRepository<BookModel, Long> {
     List<BookModel> findAll();
+    //BookModel findById(Long id);
 }
