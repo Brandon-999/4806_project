@@ -1,6 +1,5 @@
 package main.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,11 +12,9 @@ import main.repository.BookRepository;
 @Controller
 public class GUIController {
 
-    @Autowired
     private final ShoppingCartRepository cartRepo;
     private final UserRepository userRepo;
     private final BookRepository bookRepo;
-
 
     public GUIController(ShoppingCartRepository cartRepo, UserRepository userRepo, BookRepository bookRepo){
         
@@ -25,7 +22,6 @@ public class GUIController {
         this.userRepo = userRepo;
         this.bookRepo = bookRepo;
     }
-
 
     /**
      * Login and Registration Pages.
@@ -43,13 +39,9 @@ public class GUIController {
         return "register";
     }
 
-
-
     /**
      * Home Page.
      * This page will display the Bookstore, and the books it contains.
-     * 
-     * @param model
      * @return index.html
      */
     @GetMapping("/")
@@ -57,13 +49,9 @@ public class GUIController {
         return "index";
     }
 
-
-
     /**
      * Book Page.
-     * Selecting a book will display its information 
-     * @param id
-     * @param model
+     * Selecting a book will display its information
      * @return book.html
      */
     @GetMapping("/book")
@@ -71,6 +59,4 @@ public class GUIController {
         model.addAttribute("id", id);
         return "book";
     }
-
-
 }

@@ -5,14 +5,12 @@ import main.model.BookModel;
 import main.model.Credentials;
 import main.repository.BookRepository;
 import main.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import java.util.List;
 
 @RestController
 public class BookStoreController {
 
-    @Autowired
     private BookRepository bookRepository;
     private final UserService userService;
 
