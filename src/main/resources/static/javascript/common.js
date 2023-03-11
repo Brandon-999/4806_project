@@ -89,6 +89,9 @@ function attemptLogin(){
     })
     .then((obj) => {
         if(obj.success){
+            sessionStorage.setItem("loggedIn", "true");
+            sessionStorage.setItem("username", username);
+            sessionStorage.setItem("password", password);
             alert("Successful login!");
             document.location.href = "/";
         }
@@ -139,4 +142,12 @@ function attemptRegistration(){
             alert("registration error (server side)");
         }
     });
+}
+
+
+function logout(){
+    sessionStorage.setItem("loggedIn", "false");
+    sessionStorage.setItem("username", '');
+    sessionStorage.setItem("password", '');
+    document.location.href = "/";
 }
